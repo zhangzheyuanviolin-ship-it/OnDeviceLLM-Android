@@ -1,0 +1,7 @@
+
+<resources>
+    <string name="app_name">On-Device LLM</string>
+    <string name="hint_prompt">Type a message…</string>
+    <string name="btn_send">Send</string>
+    <string name="status_idle">Model idle (offline)</string>
+</resources>

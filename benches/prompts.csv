@@ -1,0 +1,5 @@
+id,task,src_lang,tgt_lang,prompt
+1,translate,en,hi,"Translate to Hindi: 'Where is the nearest hospital?'"
+2,translate,hi,en,"Translate to English: 'मुझे मदद चाहिए, कृपया पुलिस को बुलाइए।'"
+3,chat,en,en,"Explain KV cache in 2 sentences."
+4,chat,hi,hi,"भारत में 5 नदियों के नाम बताइए।"

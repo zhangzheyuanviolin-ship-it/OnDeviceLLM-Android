@@ -1,0 +1,25 @@
+# Android/Java/Kotlin
+*.iml
+.gradle/
+/local.properties
+/.idea/
+/build/
+/captures/
+/.externalNativeBuild/
+.cxx/
+
+# Node / PWA
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Models
+*.gguf
+models/
+app/src/main/assets/models/*

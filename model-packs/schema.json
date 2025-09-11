@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModelPack",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "number"
+    },
+    "sha256": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name",
+    "file",
+    "size_bytes",
+    "sha256",
+    "created_at"
+  ]
+}
