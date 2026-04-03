@@ -28,7 +28,6 @@ jobs:
           mv cmdline-tools latest
           rm cmdline-tools.zip
           
-          # Pre-accept all Android SDK licenses by creating license files
           mkdir -p $ANDROID_HOME/licenses
           echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > $ANDROID_HOME/licenses/android-sdk-license
           echo "d56f5187479451eabf01fb78af6dfcb131a6481e" >> $ANDROID_HOME/licenses/android-sdk-license
@@ -36,7 +35,6 @@ jobs:
           echo "84831b9409646a918e30573bab4c9c91346d8abd" > $ANDROID_HOME/licenses/android-sdk-preview-license
           echo "d975f751698a77b662f1254ddbeed3901e976f5a" > $ANDROID_HOME/licenses/intel-android-extra-license
           
-          # Install required packages
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0" "ndk;26.1.10909125" "cmake;3.22.1"
           
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.1.10909125" >> $GITHUB_ENV
@@ -88,6 +86,16 @@ jobs:
           rootProject.name = "OnDeviceLLMAndroid"
           include(":app")
           EOF
+          
+      - name: Fix activity_main.xml - remove leading newline before XML declaration
+        working-directory: android-app
+        run: |
+          sed -i '1{/^[[:space:]]*$/d}' app/src/main/res/layout/activity_main.xml
+          
+      - name: Add suppress compileSdk warning to gradle.properties
+        working-directory: android-app
+        run: |
+          echo "android.suppressUnsupportedCompileSdk=35" >> gradle.properties
           
       - name: Build Debug APK
         working-directory: android-app
